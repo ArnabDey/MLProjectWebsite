@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+INTRODUCTION
+==========
+This project is designed to create a supervised machine learning model that will predict house prices. The problem we are trying to solve is to help consumers gain basic knowledge on what features of a house will affect prices. 
+![Hello](https://drive.google.com/file/d/1AAQUn2chpHqa_6yMqFIMtfKpha0uu0vG/view?usp=sharing)
 
-You can use the [editor on GitHub](https://github.com/ArnabDey/MLProjectWebsite/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+DATASET AND APPROACH
+====================
+How did you get your dataset?
+What are its characteristics (e.g. number of features, # of records, temporal or not, etc.)
+Why do you think your approach can effectively solve your problem?
+What is new in your approach?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+EXPERIMENTS
+=============
+How did you evaluate your approach?
+What are the results?
 
-### Markdown
+BEST MODEL
+==============
+What is the best model?
+How do you compare your method to other methods?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ArnabDey/MLProjectWebsite/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
