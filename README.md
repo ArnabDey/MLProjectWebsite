@@ -20,7 +20,7 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the following figures show 
   <img width="460" height="300" src="Images/OrigSet3.png">
 </p>
 
-This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year. 
+This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year.
 
 ## Data Cleaning
 First, we got rid of all the features that we believe are useless for predicting house prices. The first six features are location features. To simplify the problem, we decided to use only the region feature, because it has the least number of categories (i.e. 16 of them). Then we got rid of the following features, because by common sense, they do not impact the price of a house.
@@ -51,7 +51,7 @@ Since both of the plots had the same trends, we removed the four points, which a
 
 The features we ended up going with are: number of bedrooms, bathrooms, parking spaces, region, house type,  and price. There were other location features, such as latitude, longitude, postcode, and suburb, but we chose to ignore those because we felt that only one location parameter would be relevant. We also removed all non-categorical features with text in them, because that would require extenive NLP to process, which is out of the scope of the project.
 
-Region is a categorical feature with 16 possible categories. We needed a way to turn categorical features into ordered, numerical features, because there is no natural ordering to categorical features. To handle this, we binarized the features, meaning that each category became a feature. Thus 16 extra features were added to our feature set, with each data point having only one of those features (indicated by a 1), and the rest of the features being a 0. 
+Region is a categorical feature with 16 possible categories. We needed a way to turn categorical features into ordered, numerical features, because there is no natural ordering to categorical features. To handle this, we binarized the features, meaning that each category became a feature. Thus 16 extra features were added to our feature set, with each data point having only one of those features (indicated by a 1), and the rest of the features being a 0.
 
 House type is also a categorical feature, and there were 11 possible categories. We used the same binarization approach to handle this feature.
 
@@ -130,5 +130,5 @@ How do you compare your method to other methods?
 
 # Sources
 1. https://www.kaggle.com/ruizjme/realestate-vic-sold
-2. 
+2.
 
