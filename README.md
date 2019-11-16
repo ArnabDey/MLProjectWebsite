@@ -1,6 +1,8 @@
 # INTRODUCTION
 This project is designed to create a supervised machine learning model that will predict house prices. The problem we are trying to solve is to help consumers gain basic knowledge on what features of a house will affect prices.
-
+<p align="center">
+  <img width="460" height="300" src="Images/house.svg">
+</p>
 # DATASET AND APPROACH
 How did you get your dataset?
 What are its characteristics (e.g. number of features, # of records, temporal or not, etc.)
