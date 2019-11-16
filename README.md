@@ -72,18 +72,24 @@ The first term in this equation is the loss function, and the second term is the
 
 ### Results
 
-The following figure has plots of the RMSE and Adjusted R Squared Value for each fold that Ridge Regression was trained on:
+The following figure is a plot of the RMSE for each fold that Ridge Regression was trained on:
 
 <p align="center">
-  <img width="460" height="300" src="Images/RidgePlots.png">
+  <img width="460" height="300" src="Images/RidgeRMSEPlot.png">
+</p>
+
+The following figure is a plot of the Adjusted R-Squared for each fold that Ridge Regression was trained on:
+
+<p align="center">
+  <img width="460" height="300" src="Images/RidgeAR2Plot.png">
 </p>
 
 
 The following numbers are some statistics we gathered for this model:
 
-Average RMSE: 50931.95644155271
-Average Adjusted R Squared: 0.4828565145892828
-Average RMSE-Price-Range Ratio: 0.02283113320803776
+Average RMSE: 50904.29373624
+Average Adjusted R-Squared: 0.48439081215876084
+Average RMSE-Price-Range Ratio: 0.02220778486116286
 
 The Average RMSE itself was pretty good, because of the low RMSE-Price-Range Ratio. However, the Adjusted R Squared value is pretty far from 1. This model took about 36 seconds to run.
 
