@@ -34,7 +34,7 @@ Since both of the plots had the same trends, we removed the four points, which a
 
 ## Feature Selection
 <p align="center">
-  <img width="600" height="300" src="Images/sns.png">
+  <img width="100%" height="300" src="Images/sns.png">
 </p>
 
 
