@@ -1,6 +1,5 @@
 # INTRODUCTION
 This project is designed to create a supervised machine learning model that will predict house prices. The problem we are trying to solve is to help consumers gain basic knowledge on what features of a house will affect prices.
-![Hello](https://drive.google.com/file/d/1AAQUn2chpHqa_6yMqFIMtfKpha0uu0vG/view?usp=sharing)
 
 # DATASET AND APPROACH
 How did you get your dataset?
@@ -28,6 +27,21 @@ Since both of the plots had the same trends, we removed the four points, which a
 # EXPERIMENTS
 How did you evaluate your approach?
 What are the results?
+
+## Random Forest
+<p align="center">
+  <img width="460" height="300" src="Images/RSME vs Leaf Size.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="Images/RSME vs Max Depth.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="Images/RSME vs K Fold.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="Images/R Squared vs K Fold.png">
+</p>
+
 
 # BEST MODEL
 What is the best model?
