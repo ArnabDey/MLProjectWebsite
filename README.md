@@ -11,16 +11,16 @@ What is new in your approach?
 ## Detecting Outliers
 After cleaning the data, converting all the categorical data into to numeric data using label encoding and removing all the invalid data, we wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features excluding our labels, the price of houses, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
 <p align="center">
-  <img width="460" height="300" src="Images/PCA of All Features">
+  <img width="460" height="300" src="Images/PCAofAllFeatures">
 </p>
 
 We next conducted PCA ignoring all the categorical data in order to ensure that the categorical data was not displaying invalid outliers.
 <p align="center">
-  <img width="460" height="300" src="Images/PCA Only Numeric Features">
+  <img width="460" height="300" src="Images/PCAOnlyNumericFeatures">
 </p>
 Since both of the plots had the same trends, we removed the four points, which are circled in red, that were far away from the large cluster on the plots.
 <p align="center">
-  <img width="460" height="300" src="Images/PCA of All Features Removing Outliers">
+  <img width="460" height="300" src="Images/PCAofAllFeaturesRemovingOutliers">
 </p>
 
 
