@@ -1,19 +1,27 @@
 # INTRODUCTION
-This project was designed to create a supervised machine learning model that would predict house prices. The problem we tried to solve is to help consumers gain basic knowledge on what features of a house will affect prices. As this is something that most people will experience at least once in their life, it is important to provide a resilient method of help.
+The purpose of this project was to determine the best machine learning model that would predict housing prices. Buying a house is something that most people will experience at least once in their life, and it is important to develop a resilient method that will help people make an informed decision in buying a house.
+
 <p align="center">
   <img width="460" height="300" src="Images/house.svg">
 </p>
 
 # DATASET AND APPROACH
-Our dataset was called Victoria Real Estate and it is from Kaggle. This dataset has around 100,000 records with 15 columns such as:
-- suburb
-- region
-- number of bedrooms
-- number of bathrooms
-- number of parking spaces
-- price
+We used Kaggle's 'Victoria Real Estate' dataset, and the following figures show the first 5 house entries with all the columns they have (1):
 
-This data is recent as the set was created around 1 year ago and each entry contains a list date from October or November 2018. The possbile features of this dataset appealed to us as it contains the information that we believe would directly affect the price of a house. We also decided to use features that could be generalized to all regions in an attempt to get to a solution for this general problem.
+<p align="center">
+  <img width="460" height="300" src="Images/OrigSet1.png">
+</p>
+
+<p align="center">
+  <img width="460" height="300" src="Images/OrigSet2.png">
+</p>
+
+<p align="center">
+  <img width="460" height="300" src="Images/OrigSet3.png">
+</p>
+
+This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year. We believe that there are seThe possbile features of this dataset appealed to us as it contains the information that we believe would directly affect the price of a house. We also decided to use features that could be generalized to all regions in an attempt to get to a solution for this general problem.
+
 ## Data Cleaning
 We removed entries without price values as there was only around 6,000 which was 5% of our dataset.
 
@@ -117,4 +125,8 @@ Overall, the Random Forest was effective because the RMSE is quite low, 40757.9,
 # BEST MODEL
 What is the best model?
 How do you compare your method to other methods?
+
+# Sources
+1. https://www.kaggle.com/ruizjme/realestate-vic-sold
+2. 
 
