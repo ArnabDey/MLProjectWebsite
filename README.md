@@ -13,9 +13,9 @@ Our dataset was called Victoria Real Estate and it is from Kaggle. This dataset 
 - number of parking spaces
 - price
 
-This data is recent as the set was created around 1 year ago and each entry contains a list date from October or November 2018. The possbile features of this dataset appealed to us as it contains the information that we believe would directly affect the price of a house. We also decided to use features that could be generalized to all regions in an attempt to get to a solution for this general problem. 
+This data is recent as the set was created around 1 year ago and each entry contains a list date from October or November 2018. The possbile features of this dataset appealed to us as it contains the information that we believe would directly affect the price of a house. We also decided to use features that could be generalized to all regions in an attempt to get to a solution for this general problem.
 ## Data Cleaning
-We removed entries without price values as there was only around 6,000 which was 5% of our dataset. 
+We removed entries without price values as there was only around 6,000 which was 5% of our dataset.
 
 ## Detecting Outliers
 After cleaning the data, converting all the categorical data into to numeric data using label encoding and removing all the invalid data, we wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features excluding our labels, the price of houses, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
@@ -80,18 +80,24 @@ The Average RMSE itself was pretty good, because of the low RMSE-Price-Range Rat
 ### Overview
 
 ## Random Forest
+### Process
+We wanted to determine the correct hyperparameters in order to increase the Root Mean Square Error (RMSE), so we adjusted the Minimum Samples needed in order to create a leaf. In order to ensure that we could get the highest RMSE, we varied the Minimum Samples Leaf Size from 1 to 100. We determined the optimal leaf size by looking for the point on the plot where the Training RMSE continued to decrease and the Testing RMSE started to increase when we look at plot in decreasing order of leaf size. By determining the optimal leaf size, we also reduced the chance for overfitting. Overfitting occurs when the RMSE is high for the Training data but low for the Testing data in comparison to other hyperparameter value.
 <p align="center">
   <img width="460" height="300" src="Images/RMSE vs Leaf Size.png">
 </p>
+Next, we determined the optimal max depth in order to prune our Random Forest to further decrease the chance for overfitting. Therefore, we varied the Max Depth between 1 - 100, which means that when we are at our Max Depth limit a leaf will be created instead of recursively trying to split the data further. We determined the optimal depth by finding the minimum RMSE and the corresponding Max Depth. Since the RMSE was asymptotic for both the Training and Testing datasets after the depth was greater than 20, we knew that overfitting was not occurring because of the depth.
 <p align="center">
   <img width="460" height="300" src="Images/RMSE vs Max Depth.png">
 </p>
+Finally, we ran K-Fold cross validation with 10 folds, and we computed the RMSE, RMSE Percentage, R Squared, and time needed for execution.
 <p align="center">
   <img width="460" height="300" src="Images/RMSE vs K Fold.png">
 </p>
 <p align="center">
   <img width="460" height="300" src="Images/R Squared vs K Fold.png">
 </p>
+Overall, the Random Forest was effective because the RMSE is quite low, 40757.9, the R Squared value, 0.669, is close to 1. The Random Forest also was very efficient as it took 10.5 seconds for K-Fold Validation with 10 folds.
+
 
 
 # BEST MODEL
