@@ -1,10 +1,11 @@
 # INTRODUCTION
-This project is designed to create a supervised machine learning model that will predict house prices. The problem we are trying to solve is to help consumers gain basic knowledge on what features of a house will affect prices. As something that most people will experience at least once in their life, it is important to provide a resilient method of help.
+This project was designed to create a supervised machine learning model that would predict house prices. The problem we tried to solve is to help consumers gain basic knowledge on what features of a house will affect prices. As this is something that most people will experience at least once in their life, it is important to provide a resilient method of help.
 <p align="center">
   <img width="460" height="300" src="Images/house.svg">
 </p>
+
 # DATASET AND APPROACH
-Our dataset is called Victoria Real Estate and it is from Kaggle. This dataset has around 100,000 records with 15 columns such as:
+Our dataset was called Victoria Real Estate and it is from Kaggle. This dataset has around 100,000 records with 15 columns such as:
 - suburb
 - region
 - number of bedrooms
