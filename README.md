@@ -7,18 +7,16 @@ The purpose of this project was to determine the best machine learning model tha
 
 # DATASET AND APPROACH
 We used Kaggle's 'Victoria Real Estate' dataset, and the following figures show the first 5 house entries with all the columns they have (1):
-
-<p align="center">
-  <img width="460" height="300" src="Images/OrigSet1.png">
-</p>
-
-<p align="center">
-  <img width="460" height="300" src="Images/OrigSet2.png">
-</p>
-
-<p align="center">
-  <img width="460" height="300" src="Images/OrigSet3.png">
-</p>
+-Latitude
+-Longitude
+-Suburb
+-Postcode
+-Region
+-Bedrooms
+-Bathrooms
+-Parking Spaces
+-Property Type
+-Price
 
 This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year.
 
