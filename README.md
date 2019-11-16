@@ -1,14 +1,18 @@
 # INTRODUCTION
-This project is designed to create a supervised machine learning model that will predict house prices. The problem we are trying to solve is to help consumers gain basic knowledge on what features of a house will affect prices.
+This project is designed to create a supervised machine learning model that will predict house prices. The problem we are trying to solve is to help consumers gain basic knowledge on what features of a house will affect prices. As something that most people will experience at least once in their life, it is important to provide a resilient method of help.
 <p align="center">
   <img width="460" height="300" src="Images/house.svg">
 </p>
 # DATASET AND APPROACH
-How did you get your dataset?
-What are its characteristics (e.g. number of features, # of records, temporal or not, etc.)
-Why do you think your approach can effectively solve your problem?
-What is new in your approach?
+Our dataset is called Victoria Real Estate and it is from Kaggle. This dataset has around 100,000 records with 15 columns such as:
+- suburb
+- region
+- number of bedrooms
+- number of bathrooms
+- number of parking spaces
+- price
 
+This data is recent as the set was created around 1 year ago and each entry contains a list date from October or November 2018. The possbile features of this dataset appealed to us as it contains the information that we believe would directly affect the price of a house. We also decided to use features that could be generalized to all regions in an attempt to get to a solution for this general problem. 
 ## Detecting Outliers
 After cleaning the data, converting all the categorical data into to numeric data using label encoding and removing all the invalid data, we wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features excluding our labels, the price of houses, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
 <p align="center">
