@@ -43,7 +43,16 @@ To ensure that the model's accuracy is not impacted by the train-test split, we 
 
 ## Ridge Regression
 
-This model aims to fit a function to k
+### Description
+
+Ridge Regression aims to fit a function to the dataset such that the following error function is minimized:
+
+![ridgeeq](https://latex.codecogs.com/gif.latex?E%28%5Ctheta%29%20%3D%20%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%28f%28x_i%2C%5Ctheta%29-y_i%29%5E2%20&plus;%20%5Cfrac%7B%5Clambda%7D%7BN%7D%7C%7C%5Ctheta%7C%7C%5E2)
+
+
+In this model, there is a parameter called the regularization strength, which determines how much penalty to add to the loss function. The purpose of this parameter is to prevent overfitting. We used a set of 5 possible regularization strength values, of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set. Since we were using the Scikit Learn Ridge Cross Validation library, we don't know what regularization strength the model actually ended up picking.
+
+### Overview
 
 ## Random Forest
 <p align="center">
