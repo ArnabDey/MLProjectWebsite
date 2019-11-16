@@ -14,6 +14,9 @@ Our dataset was called Victoria Real Estate and it is from Kaggle. This dataset 
 - price
 
 This data is recent as the set was created around 1 year ago and each entry contains a list date from October or November 2018. The possbile features of this dataset appealed to us as it contains the information that we believe would directly affect the price of a house. We also decided to use features that could be generalized to all regions in an attempt to get to a solution for this general problem.
+## Data Cleaning
+We removed entries without price values as there was only around 6,000 which was 5% of our dataset.
+
 ## Detecting Outliers
 After cleaning the data, converting all the categorical data into to numeric data using label encoding and removing all the invalid data, we wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features excluding our labels, the price of houses, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
 <p align="center">
@@ -29,6 +32,10 @@ Since both of the plots had the same trends, we removed the four points, which a
   <img width="460" height="300" src="Images/PCAofAllFeaturesRemovingOutliers.png">
 </p>
 
+## Feature Selection
+<p align="center">
+  <img width="100%" height="300" src="Images/sns.png">
+</p>
 
 
 # EXPERIMENTS
@@ -44,7 +51,16 @@ To ensure that the model's accuracy is not impacted by the train-test split, we 
 
 ## Ridge Regression
 
-This model aims to fit a function to k
+### Description
+
+Ridge Regression aims to fit a function to the dataset such that the following error function is minimized:
+
+![ridgeeq](https://latex.codecogs.com/gif.latex?E%28%5Ctheta%29%20%3D%20%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%28f%28x_i%2C%5Ctheta%29-y_i%29%5E2%20&plus;%20%5Cfrac%7B%5Clambda%7D%7BN%7D%7C%7C%5Ctheta%7C%7C%5E2)
+
+
+In this model, there is a parameter called the regularization strength, which determines how much penalty to add to the loss function. The purpose of this parameter is to prevent overfitting. We used a set of 5 possible regularization strength values, of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set. Since we were using the Scikit Learn Ridge Cross Validation library, we don't know what regularization strength the model actually ended up picking.
+
+### Overview
 
 ## Random Forest
 ### Process
