@@ -23,9 +23,15 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the following figures show 
 This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year. 
 
 ## Data Cleaning
-First, we got rid of all the features that we believe are useless for predicting house prices. The first six features are location features. To simplify the problem, we decided to use only the region feature, because it has the least number of categories (i.e. 16 of them). Then we got rid of the following features, because by common sense, they do not impact the price of a house.
+The original dataset has 105,120 samples. 
 
-We removed entries without price values as there was only around 6,000 which was 5% of our dataset.
+First, we got rid of all the features that we believe are useless for predicting house prices. The first six features are location features. To simplify the problem, we decided to use only the region feature, because it has the least number of categories (i.e. 16 of them). Then we got rid of the following features, because by common sense, they do not impact the price of a house: listingId, title, dateSold, modifiedDate.
+
+Then we got rid of all rows with missing and unknown column entries, as a complete dataset is needed to feed it into a model.
+
+After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or 5% of the original data. This is a very small loss of data.
+
+## Converting Categorical Features 
 
 ## Detecting Outliers
 After cleaning the data, converting all the categorical data into to numeric data using label encoding and removing all the invalid data, we wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features excluding our labels, the price of houses, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
