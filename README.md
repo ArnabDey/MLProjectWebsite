@@ -20,9 +20,11 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the following figures show 
   <img width="460" height="300" src="Images/OrigSet3.png">
 </p>
 
-This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year. We believe that there are seThe possbile features of this dataset appealed to us as it contains the information that we believe would directly affect the price of a house. We also decided to use features that could be generalized to all regions in an attempt to get to a solution for this general problem.
+This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year. 
 
 ## Data Cleaning
+First, we got rid of all the features that we believe are useless for predicting house prices. The first six features are location features. To simplify the problem, we decided to use only the region feature, because it has the least number of categories (i.e. 16 of them). Then we got rid of the following features, because by common sense, they do not impact the price of a house.
+
 We removed entries without price values as there was only around 6,000 which was 5% of our dataset.
 
 ## Detecting Outliers
