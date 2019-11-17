@@ -146,6 +146,15 @@ Overall, the Random Forest was effective because the RMSE is quite low, 40757.9,
 # BEST MODEL
 What is the best model?
 How do you compare your method to other methods?
+<p align="center">
+  <img width="460" height="300" src="Images/Adjusted R Squared All Models.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="Images/RMSE Plot All Models.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="Images/Time All Models.png">
+</p>
 
 # Sources
 1. https://www.kaggle.com/ruizjme/realestate-vic-sold
