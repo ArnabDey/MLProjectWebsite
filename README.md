@@ -6,7 +6,7 @@ The purpose of this project was to determine the best machine learning model tha
 </p>
 
 # DATASET AND APPROACH
-We used Kaggle's 'Victoria Real Estate' dataset, and the following figures show the first 5 house entries with all the columns they have (1):
+We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 105,120 samples with the following 15 columns (1):
 -Latitude
 -Longitude
 -Suburb
@@ -18,10 +18,10 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the following figures show 
 -Property Type
 -Price
 
+
 This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year.
 
 ## Data Cleaning
-The original dataset has 105,120 samples. 
 
 First, we got rid of all the features that we believe are useless for predicting house prices. The first six features are location features. To simplify the problem, we decided to use only the region feature, because it has the least number of categories (i.e. 16 of them). Then we got rid of the following features, because by common sense, they do not impact the price of a house: listingId, title, dateSold, modifiedDate.
 
@@ -29,7 +29,7 @@ Then we got rid of all rows with missing and unknown column entries, as a comple
 
 After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or 5% of the original data. This is a very small loss of data.
 
-## Converting Categorical Features 
+## Converting Categorical Features
 
 ## Detecting Outliers
 After cleaning the data, converting all the categorical data into to numeric data using label encoding and removing all the invalid data, we wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features excluding our labels, the price of houses, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
