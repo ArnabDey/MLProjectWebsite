@@ -5,6 +5,10 @@ The purpose of this project was to determine the best machine learning model tha
   <img width="460" height="300" src="Images/house.svg">
 </p>
 
+<p align="center">
+  <img src="Images/map">
+</p>
+
 # DATASET AND APPROACH
 We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 105,120 samples with the following 15 columns (1):
 - Street Address
