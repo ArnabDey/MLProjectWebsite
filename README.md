@@ -230,7 +230,7 @@ How do you compare your method to other methods?
   <img width="460" height="300" src="Images/RMSE Plot All Models.png">
 </p>
 <p align="center">
-  <img width="460" height="300" src="Images/Time All Models.png">
+  <img width="460" height="300" src="Images/Run Time All Models.png">
 </p>
 
 # Sources
