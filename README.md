@@ -83,7 +83,7 @@ To ensure that the model's accuracy is not impacted by the train-test split, we 
 Ridge Regression aims to fit a function to the dataset such that the following error function is minimized:
 
 <p align="center">
-  <img width="100%" height="100" src="Images/RidgeEq.png">
+  <img width="560" height="100" src="Images/RidgeEq.png">
 </p>
 
 We used a set of 7 possible regularization strength values , of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set.
@@ -237,17 +237,17 @@ Srivastava, Tavish. “11 Important Model Evaluation Metrics for Machine Learnin
 
 # Contributions
 
-Proposal - Arnab, Shahin, Mohak, Adithya, Anunoy
-Visualization of Data - Anunoy, Mohak
-Research - Arnab, Shahin, Mohak, Adithya, Anunoy
-Cleaning Data - Arnab, Shahin, Adithya
-One Hot Encoding - Adithya
-Removing Outliers - Arnab
-Ridge Regression - Adithya 
-Random Forest - Arnab 
-Decision Trees - Anunoy
-Neural Network - Mohak
-K-Means Clustering - Shahin, Arnab
-Comparative Analysis - Arnab, Mohak
-Website - Mohak, Shahin, Arnab, Adithya, Anunoy
-SVM (not included in presentation due to limited computing power) - Shahin
+- Proposal - Arnab, Shahin, Mohak, Adithya, Anunoy
+- Visualization of Data - Anunoy, Mohak
+- Research - Arnab, Shahin, Mohak, Adithya, Anunoy
+- Cleaning Data - Arnab, Shahin, Adithya
+- One Hot Encoding - Adithya
+- Removing Outliers - Arnab
+- Ridge Regression - Adithya 
+- Random Forest - Arnab 
+- Decision Trees - Anunoy
+- Neural Network - Mohak
+- K-Means Clustering - Shahin, Arnab
+- Comparative Analysis - Arnab, Mohak
+- Website - Mohak, Shahin, Arnab, Adithya, Anunoy
+- SVM (not included in presentation due to limited computing power) - Shahin
