@@ -27,12 +27,22 @@ First, we got rid of all the features that we believe are useless for predicting
 
 Then we got rid of all rows with missing and unknown column entries, as a complete dataset is needed to feed it into a model.
 
-After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or 5% of the original data. This is a very small loss of data.
+After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or about 5% of the original data. This is a very small loss of data.
 
-## Converting Categorical Features
+## Converting Categorical Features into Numerical Features
 
-## Detecting Outliers
-After cleaning the data, converting all the categorical data into to numeric data using label encoding and removing all the invalid data, we wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features excluding our labels, the price of houses, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
+The features we ended up going with are: number of bedrooms, bathrooms, parking spaces, region, house type, and price.
+
+Region is a categorical feature with 16 possible categories. We needed a way to turn categorical features into ordered, numerical features, because there is no natural ordering to categorical features. To handle this, we binarized the features, meaning that each category became a feature. Thus 16 extra features were added to our feature set, with each data point having only one of those features (indicated by a 1), and the rest of the features being a 0.
+
+House type is also a categorical feature, and there were 11 possible categories. We used the same binarization approach to handle this feature.
+
+Overall, there were 30 features in our final dataset.
+
+Insert Binalization features, and cite
+
+## Detecting Outliers using Unsupervised Learning
+We wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features, excluding our labels, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
 <p align="center">
   <img width="460" height="300" src="Images/PCAofAllFeatures.png">
 </p>
@@ -41,7 +51,7 @@ We next conducted PCA ignoring all the categorical data in order to ensure that 
 <p align="center">
   <img width="460" height="300" src="Images/PCAOnlyNumericFeatures.png">
 </p>
-Since both of the plots had the same trends, we removed the four points, which are circled in red, that were far away from the large cluster on the plots.
+Since both of the plots had the same trends, we removed the four points, that were far away from the large cluster on the plots.
 <p align="center">
   <img width="460" height="300" src="Images/PCAofAllFeaturesRemovingOutliers.png">
 </p>
@@ -51,15 +61,7 @@ Since both of the plots had the same trends, we removed the four points, which a
   <img width="100%" height="300" src="Images/sns.png">
 </p>
 
-## Binarization
 
-The features we ended up going with are: number of bedrooms, bathrooms, parking spaces, region, house type,  and price. There were other location features, such as latitude, longitude, postcode, and suburb, but we chose to ignore those because we felt that only one location parameter would be relevant. We also removed all non-categorical features with text in them, because that would require extenive NLP to process, which is out of the scope of the project.
-
-Region is a categorical feature with 16 possible categories. We needed a way to turn categorical features into ordered, numerical features, because there is no natural ordering to categorical features. To handle this, we binarized the features, meaning that each category became a feature. Thus 16 extra features were added to our feature set, with each data point having only one of those features (indicated by a 1), and the rest of the features being a 0.
-
-House type is also a categorical feature, and there were 11 possible categories. We used the same binarization approach to handle this feature.
-
-Overall, there were 30 features in our final dataset.
 
 
 # EXPERIMENTS
