@@ -152,22 +152,22 @@ The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropp
 Hyper parameter tuning was used to initialize the values in the neural network. For example, here are the results of the model with varying amount of hidden layers:
 #### 1 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/1Hl.png">
+  <img width="460" height="300" src="Images/1HL.png">
 </p>
 
 #### 2 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/2Hl.png">
+  <img width="460" height="300" src="Images/2HL.png">
 </p>
 
 #### 3 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/3Hl.png">
+  <img width="460" height="300" src="Images/3HL.png">
 </p>
 
 #### 4 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/4Hl.png">
+  <img width="460" height="300" src="Images/4HL.png">
 </p>
 
 The values kept on degrading past 4 hidden layers.
