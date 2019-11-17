@@ -1,5 +1,5 @@
 # INTRODUCTION
-The purpose of this project was to determine the best machine learning model that would predict housing prices. Buying a house is something that most people will experience at least once in their life, and it is important to develop a resilient method that will help people make an informed decision in buying a house.
+The purpose of this project was to determine the best machine learning model that would accurately predict house prices based on relevant features of a house. Buying a house is something that most people will experience at least once in their life, and it is important to develop a resilient method that will help people make an informed decision.
 
 <p align="center">
   <img width="460" height="300" src="Images/house.svg">
@@ -17,7 +17,6 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 10
 - Longitude
 - Suburb
 - Postcode
-- Region
 - Bedrooms
 - Bathrooms
 - Parking Spaces
@@ -25,28 +24,20 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 10
 - Prices
 
 
-This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year.
+This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset will produce a model that can be used in the near future.
 
-## Data Quality
-After conducting research on factors that impact house prices as well as our past experience, we determined that the dataset contained sufficient features in order to build a good model to predict house prices.
-
-## Our New Approach
-In our evaluation of several supervised learning models, we tried adding a supervised flavor to the K-Means Clustering algorithm, which is an unsupervised model. The idea is that even though clusters don't have labels, we artificially added the label of an average price of houses in each cluster. This way, we would run K-Means clustering in our training set and testing set, and find th error between the average training prices in each cluster to the average testing prices in each cluster. We think that this approach has never been done before, and that the average price of a cluster will be a good indicator of the price of houses that get added to the cluster in the future.
-
-
-
+After conducting research on past approaches and factors that impact house prices, we determined that the dataset contained the main features required to build a good model to predict house prices. We also saw features that could be generalized to houses in other regions.
 
 ## Data Cleaning
+We decided to remove entries with missing values and other values with which we would be unable to train on. For example, some houses had a listing which only said to contact agent.
 
-First, we got rid of all the features that we believe are useless for predicting house prices. The first six features are location features. To simplify the problem, we decided to use only the region feature, because it has the least number of categories (i.e. 16 of them). Then we got rid of the following features, because by common sense, they do not impact the price of a house: listingId, title, dateSold, modifiedDate.
-
-Then we got rid of all rows with missing and unknown column entries, as a complete dataset is needed to feed it into a model.
-
-After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or about 5% of the original data. This is a very small loss of data.## 
+After all the cleaning, the dataset had 99,863 samples. This was a loss of 5,257 samples, or about 5% of the original data.
 
 ## Feature Selection
+As there were 6 features related to location of the house in our original dataset, we decided to use the region feature as we felt that provided the most information compared to other measures like latitude and longitude. We also eliminated listingId, title, dateSold, and modifiedDate as these would provide no significant value to our model. While looking at the pairplot of the numeric features, it is evident the features that seem to provide the most information about price are number of bathrooms, bedrooms, and parking spaces. Latitude and longitude seem to not have a relationship when it comes to price and thus they were not included in the model.
+
 <p align="center">
-  <img width="100%" height="300" src="Images/features.jpg">
+  <img width="100%" height="100%" src="Images/features.jpg">
 </p>
 
 ## Converting Categorical Features into Numerical Features
@@ -75,6 +66,9 @@ Since both of the plots had the same trends, we removed the four points, that we
 <p align="center">
   <img width="460" height="300" src="Images/PCAofAllFeaturesRemovingOutliers.png">
 </p>
+
+## Our New Approach
+We tried adding a supervised flavor to the K-Means Clustering algorithm. The idea is that even though clusters don't have labels, we artificially added the label of an average price of houses in each cluster. This way, we would run K-Means clustering on our training set and testing set, and find the error between the average training prices in each cluster to the average testing prices in each cluster. We thought that this approach would provide us with better results, and that the average price of a cluster will be a good indicator of the price of houses that get added to the cluster in the future.
 
 # EXPERIMENTS
 How did you evaluate your approach?
@@ -142,51 +136,91 @@ Finally, we ran K-Fold cross validation with 10 folds, and we computed the RMSE,
 </p>
 Overall, the Random Forest was effective because the RMSE is quite low, 40757.9, the R Squared value, 0.669, is close to 1. The Random Forest also was very efficient as it took 10.5 seconds for K-Fold Validation with 10 folds.
 
+## Decision Tree
+### Process
+Similar to the Random Forest Model, we wanted to determine the correct hyperparameters for the Decision Tree model to get the lowest Root Mean Square Error (RMSE) and to reduce overfitting. We applied different Minimum Samples Leaf Size to the model that ranged from 1 to 50 number of leaves. Just like in Random Forest, we determine the most optimal number of leaves by searching in decreasing order of leaf size to find the point in the plot where the Training RMSE decreased as the Testing RMSE increase. Finding the optimal number of leaves also, reduced the probability that overfitting occurs within our model.
+<p align="center">
+  <img width="460" height="300" src="Images/RMSEvsLeafSize_DecisionTree.png">
+</p>
+Additionally, we found the most optimal Max Depth for our Decision Tree model with further reduced the chance of overfitting. We tested different depths that ranged from 1 to 100. We found the optimal Max Depth by searching for the point that had the lowest RMSE. When the depth is greater than 20, the Training and Testing datasets displayed no change in RMSE which guaranteed that there was no overfitting in the model.
+<p align="center">
+  <img width="460" height="300" src="Images/RMSEvsMaxDepth_DecisionTree.png">
+</p>
+After optimizing our parameters, we ran a 10-fold cross validation and computed the model’s RMSE, RMSE Percentage, R Squared, and time needed for execution.
+<p align="center">
+  <img width="460" height="300" src="Images/RMSEvsKFold_DecisionTree.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="Images/AdjustedRSquaredvsKFold_DecisionTree.png">
+</p>
+Overall, Decision Trees has a low RMSE of 42136.6 and has a R Squared value of 0.644. Additionally, the Decision Tree model took approximately 24.9 seconds to find the optimal Leaf Size and Max Depth and to run the cross validation.
+
 ## Neural Network
 ### Process
-We also tried to use a neural network to model our problem. The archictecture of the neural network is as follows:
+We also attempted to use a neural network to model our problem. The dataset was normalized before by using a min-max scaler. The archictecture of the final neural network is as follows:
 <p align="center">
   <img width="100%" height="300" src="Images/nn.jpg">
 </p>
 
-The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropping out 50% of the parameters after each hidden layer. The activation function used was relu.
+The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropping out 50% of the parameters after each hidden layer. The activation function used was Relu.
 
-Hyper parameter tuning was used to initialize the values in the neural network. For example, here are the results of the model with varying amount of hidden layers:
+Hyper parameter tuning was used to formulate the parameters in the neural network. All the possible parameters include number of nodes, number of hidden layers, activation function, and number of epochs. Parameters chosen reduced validation and training set Mean Square Error. Here are the results of the model with varying amount of hidden layers:
 #### 1 Hidden Layer
 <p align="center">
   <img width="460" height="300" src="Images/1HL.png">
 </p>
 
-#### 2 Hidden Layer
+#### 2 Hidden Layers
 <p align="center">
   <img width="460" height="300" src="Images/2HL.png">
 </p>
 
-#### 3 Hidden Layer
+#### 3 Hidden Layers
 <p align="center">
   <img width="460" height="300" src="Images/3HL.png">
 </p>
 
-#### 4 Hidden Layer
+#### 4 Hidden Layers
 <p align="center">
   <img width="460" height="300" src="Images/4HL.png">
 </p>
 
-The values kept on degrading past 4 hidden layers.
-
-Here is a 3 layer architecture with changing activation functions.
-
+The values continued to degrade past 4 hidden layers which was why we decided 3 hidden layers would be best.
+Here is a 3 layer architecture with changing activation functions:
 #### Tanh Activation Function
 <p align="center">
-  <img width="460" height="300" src="Images/tanh.jpg">
+  <img width="460" height="300" src="Images/tanh.png">
 </p>
 
 #### Sigmoid Activation Function
 <p align="center">
-  <img width="460" height="300" src="Images/sigmoid.jpg">
+  <img width="460" height="300" src="Images/sigmoid.png">
 </p>
 
-The validation set was 10% of the data and was shuffled after each of the 30 epochs. The final RMSE values for this model was 0.07 and gave a R^2 of 0.47.
+The Tanh activation function was the 2nd best while the sigmoid function seems to be performing the worst.
+The validation set was 10% of the data and was shuffled after each of the 30 epochs. The final RMSE value for this model was 0.07 and gave a R^2 of 0.47.
+
+## K-Means Clustering
+### Process
+To perform K-Means Clustering on our dataset, we first created clusters based on the training data’s features, excluding price. Next, we took all the data points in the same cluster and averaged their prices. After finding the average price of each training cluster, the test data was assigned clusters based on the model that was generated by the training data. We identified which one of the clusters each test data point fell into and set their predicted label/price to be the average price represented by the cluster.
+
+To determine the correct hyperparameters to minimize the Root Mean Square Error, we varied the number of clusters we split our data into from 1 to 100 (call this variable k). For each k, we calculated the RMSE to identify the optimal number of clusters.
+
+<p align="center">
+  <img width="460" height="300" src="Images/RMSE vs Number of Clusters Kmeans.PNG">
+</p>
+
+From analyzing the graph above, we found the optimal number of clusters to be 73. With this optimal number of clusters, we ran K-Fold cross validation with 10 folds and computed the RMSE, RMSE percentage, R Squared, and time needed for execution.
+
+<p align="center">
+  <img width="460" height="300" src="Images/RMSE vs KFold Kmeans.PNG">
+</p>
+
+<p align="center">
+  <img width="460" height="300" src="Images/Adjusted R Squared vs KFold Kmeans.PNG">
+</p>
+
+In all, K-means Clustering turned out to be a bad model for our dataset as the RMSE is 381001.587 and the R Squared value is -9536.015. The time it took to run K-Means Clustering was 1427.653 seconds.
 
 # BEST MODEL
 What is the best model?
@@ -198,7 +232,7 @@ How do you compare your method to other methods?
   <img width="460" height="300" src="Images/RMSE Plot All Models.png">
 </p>
 <p align="center">
-  <img width="460" height="300" src="Images/Time All Models.png">
+  <img width="460" height="300" src="Images/Run Time All Models.png">
 </p>
 
 # Works Cited
