@@ -46,7 +46,7 @@ After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 
 
 ## Feature Selection
 <p align="center">
-  <img width="100%" height="300" src="Images/features.png">
+  <img width="100%" height="300" src="Images/features.jpg">
 </p>
 
 ## Converting Categorical Features into Numerical Features
