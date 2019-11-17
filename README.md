@@ -7,19 +7,34 @@ The purpose of this project was to determine the best machine learning model tha
 
 # DATASET AND APPROACH
 We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 105,120 samples with the following 15 columns (1):
--Latitude
--Longitude
--Suburb
--Postcode
--Region
--Bedrooms
--Bathrooms
--Parking Spaces
--Property Type
--Price
+- Street Address
+- Listing Id
+- Title
+- Date Sold
+- Modified Date
+- Region
+- Latitude
+- Longitude
+- Suburb
+- Postcode
+- Region
+- Bedrooms
+- Bathrooms
+- Parking Spaces
+- Property Type
+- Prices
 
 
 This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year.
+
+## Data Quality
+After conducting research on factors that impact house prices as well as our past experience, we determined that the dataset contained sufficient features in order to build a good model to predict house prices.
+
+## Our New Approach
+In our evaluation of several supervised learning models, we tried adding a supervised flavor to the K-Means Clustering algorithm, which is an unsupervised model. The idea is that even though clusters don't have labels, we artificially added the label of an average price of houses in each cluster. This way, we would run K-Means clustering in our training set and testing set, and find th error between the average training prices in each cluster to the average testing prices in each cluster. We think that this approach has never been done before, and that the average price of a cluster will be a good indicator of the price of houses that get added to the cluster in the future.
+
+
+
 
 ## Data Cleaning
 
