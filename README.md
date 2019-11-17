@@ -226,13 +226,13 @@ In all, K-means Clustering turned out to be a bad model for our dataset as the R
 What is the best model?
 How do you compare your method to other methods?
 <p align="center">
-  <img width="460" height="300" src="Images/Adjusted R Squared All Models.png">
+  <img width="460" height="300" src="Images/AR2Analysis.png">
 </p>
 <p align="center">
-  <img width="460" height="300" src="Images/RMSE Plot All Models.png">
+  <img width="460" height="300" src="Images/RatioAnalysis.png">
 </p>
 <p align="center">
-  <img width="460" height="300" src="Images/Run Time All Models.png">
+  <img width="460" height="300" src="Images/TimeAnalysis.png">
 </p>
 
 # Works Cited
