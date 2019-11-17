@@ -46,7 +46,7 @@ After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 
 
 ## Feature Selection
 <p align="center">
-  <img width="100%" height="300" src="Images/sns.png">
+  <img width="100%" height="300" src="Images/features.png">
 </p>
 
 ## Converting Categorical Features into Numerical Features
@@ -144,7 +144,7 @@ Overall, the Random Forest was effective because the RMSE is quite low, 40757.9,
 ### Process
 We also tried to use a neural network to model our problem. The archictecture of the neural network is as follows:
 <p align="center">
-  <img width="460" height="300" src="Images/nn.jpg">
+  <img width="100%" height="300" src="Images/nn.jpg">
 </p>
 
 The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropping out 50% of the parameters after each hidden layer. The activation function used was relu.
@@ -152,22 +152,22 @@ The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropp
 Hyper parameter tuning was used to initialize the values in the neural network. For example, here are the results of the model with varying amount of hidden layers:
 #### 1 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/1Hl.jpg">
+  <img width="460" height="300" src="Images/1Hl.png">
 </p>
 
 #### 2 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/2Hl.jpg">
+  <img width="460" height="300" src="Images/2Hl.png">
 </p>
 
 #### 3 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/3Hl.jpg">
+  <img width="460" height="300" src="Images/3Hl.png">
 </p>
 
 #### 4 Hidden Layer
 <p align="center">
-  <img width="460" height="300" src="Images/4Hl.jpg">
+  <img width="460" height="300" src="Images/4Hl.png">
 </p>
 
 The values kept on degrading past 4 hidden layers.
