@@ -88,7 +88,7 @@ Ridge Regression aims to fit a function to the dataset such that the following e
 
 We used a set of 7 possible regularization strength values , of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set.
 
-### Results
+### Process
 
 The following figure is a plot of the RMSE for each fold that Ridge Regression was trained on:
 
@@ -210,6 +210,10 @@ From analyzing the graph above, we found the optimal number of clusters to be 73
 In all, K-means Clustering turned out to be a bad model for our dataset as the RMSE is 381001.587 and the R Squared value is -9536.015. The time it took to run K-Means Clustering was 1427.653 seconds.
 
 # Conclusion
+
+| | RMSE | R^2 | RMSE Percent |
+| | ---- | ----| ------------ |
+| Ridge Regression | 12 | 14 | 15 |
 
 <p align="center">
   <img width="460" height="300" src="Images/AR2Analysis.png">
