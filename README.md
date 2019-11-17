@@ -219,15 +219,15 @@ In all, K-means Clustering turned out to be a bad model for our dataset as the R
 |Ridge Regression | 0.48 | 2.18 | 30.78 |
 
 <p align="center">
-  <img width="460" height="300" src="Images/AR2Analysis.png">
+  <img width="460" height="400" src="Images/AR2Analysis.png">
 </p>
 
 The model with the highest R^2 was Random Forest.
 <p align="center">
-  <img width="460" height="300" src="Images/RatioAnalysis.png">
+  <img width="460" height="350" src="Images/RatioAnalysis.png">
 </p>
 
-The model with the least eror was Random Forest.
+The model with the least error was Random Forest.
 <p align="center">
   <img width="460" height="300" src="Images/TimeAnalysis.png">
 </p>
