@@ -193,17 +193,17 @@ To perform K-Means Clustering on our dataset, we first created clusters based on
 To determine the correct hyperparameters to minimize the Root Mean Square Error, we varied the number of clusters we split our data into from 1 to 100 (call this variable k). For each k, we calculated the RMSE to identify the optimal number of clusters.
 
 <p align="center">
-  <img width="460" height="300" src="Images/RMSEvsNumberofClusterskmeans.png">
+  <img width="460" height="300" src="Images/RMSE vs Number of Clusters Kmeans.PNG">
 </p>
 
 From analyzing the graph above, we found the optimal number of clusters to be 73. With this optimal number of clusters, we ran K-Fold cross validation with 10 folds and computed the RMSE, RMSE percentage, R Squared, and time needed for execution. 
 
 <p align="center">
-  <img width="460" height="300" src="Images/RMSEvsKFoldkmeans.png">
+  <img width="460" height="300" src="Images/RMSE vs KFold Kmeans.PNG">
 </p>
 
 <p align="center">
-  <img width="460" height="300" src="Images/AdjustedRSquaredvsKFoldkmeans.png">
+  <img width="460" height="300" src="Images/Adjusted R Squared vs KFold Kmeans.PNG">
 </p>
 
 In all, K-means Clustering turned out to be a bad model for our dataset as the RMSE is 381001.587 and the R Squared value is -9536.015. The time it took to run K-Means Clustering was 1427.653 seconds.
