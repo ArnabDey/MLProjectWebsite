@@ -99,13 +99,13 @@ We used a set of 5 possible regularization strength values (i.e. lambdas), of wh
 The following figure is a plot of the RMSE for each fold that Ridge Regression was trained on:
 
 <p align="center">
-  <img width="460" height="300" src="Images/RidgeRMSEPlot.png">
+  <img width="460" height="300" src="Images/RidgePlot1.png">
 </p>
 
 The following figure is a plot of the Adjusted R-Squared for each fold that Ridge Regression was trained on:
 
 <p align="center">
-  <img width="460" height="300" src="Images/RidgeAR2Plot.png">
+  <img width="460" height="300" src="Images/RidgePlot2.png">
 </p>
 
 
