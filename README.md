@@ -137,11 +137,11 @@ Overall, the Random Forest was effective because the RMSE is quite low, 40836.66
 
 ## Decision Tree
 ### Process
-Similar to the Random Forest Model, we wanted to determine the correct hyperparameters for the Decision Tree model to get the lowest Root Mean Square Error (RMSE) and to reduce overfitting. We applied different Minimum Samples Leaf Size to the model that ranged from 1 to 50 number of leaves. Just like in Random Forest, we determine the most optimal number of leaves by searching in decreasing order of leaf size to find the point in the plot where the Training RMSE decreased as the Testing RMSE increase. Finding the optimal number of leaves also, reduced the probability that overfitting occurs within our model.
+The Decision Tree model is very similar to the Random Forest Model and tested on the Minimum Samples Leaf Size and Max Depth hyperparameters. First, we tested different number leaves to find the Minimum Samples Leaf Size of the model. We found that having a Leaf Size of 3 produced the lowest RMSE and reduced chances of overfitting.
 <p align="center">
   <img width="460" height="300" src="Images/RMSEvsLeafSize_DecisionTree.png">
 </p>
-Additionally, we found the most optimal Max Depth for our Decision Tree model with further reduced the chance of overfitting. We tested different depths that ranged from 1 to 100. We found the optimal Max Depth by searching for the point that had the lowest RMSE. When the depth is greater than 20, the Training and Testing datasets displayed no change in RMSE which guaranteed that there was no overfitting in the model.
+Additionally, we found the most optimal Max Depth for our Decision Tree model with further reduced the chance of overfitting. We tested different depths and discovered that for depths greater than 20, the Training and Testing datasets displayed no change in RMSE which guaranteed no overfitting in the model.
 <p align="center">
   <img width="460" height="300" src="Images/RMSEvsMaxDepth_DecisionTree.png">
 </p>
