@@ -140,7 +140,7 @@ After optimizing our parameters, we ran a 10-fold cross validation and computed 
 <p align="center">
   <img width="460" height="300" src="Images/AdjustedRSquaredvsKFold_DecisionTree.png">
 </p>
-Overall, Decision Trees has a low RMSE of 42136.6 and has a R Squared value of 0.644. Additionally, the Decision Tree model took approximately 24.9 seconds to find the optimal Leaf Size and Max Depth and to run the cross validation.
+The Decision Tree gave an RMSE of 42136.6 and a R^2 of 0.644. 
 
 ## Neural Network
 ### Process
@@ -232,9 +232,11 @@ The model with the least error was Random Forest.
   <img width="460" height="360" src="Images/TimeAnalysis.png">
 </p>
 
-The model that took the least amount of time was a decision tree.
+The model that took the least amount of time was a Decision Tree.
 
 The best model is dependent on the situation, if it is necessary for quick results then a decision tree will provide close to the same level as a random forest at 1/6 the time. If time is not a factor, then a random forest will provide the best results.
+
+We find our results consistent with other research in this area as it seems that models like random forests and decisions trees are particulary good at finding these relationships with a good accurracy rate. 
 
 # Works Cited
 
