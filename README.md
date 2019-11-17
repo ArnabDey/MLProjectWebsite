@@ -134,6 +134,25 @@ Finally, we ran K-Fold cross validation with 10 folds, and we computed the RMSE,
 </p>
 Overall, the Random Forest was effective because the RMSE is quite low, 40757.9, the R Squared value, 0.669, is close to 1. The Random Forest also was very efficient as it took 10.5 seconds for K-Fold Validation with 10 folds.
 
+## Decision Tree
+### Process
+Similar to the Random Forest Model, we wanted to determine the correct hyperparameters for the Decision Tree model to get the lowest Root Mean Square Error (RMSE) and to reduce overfitting. We applied different Minimum Samples Leaf Size to the model that ranged from 1 to 50 number of leaves. Just like in Random Forest, we determine the most optimal number of leaves by searching in decreasing order of leaf size to find the point in the plot where the Training RMSE decreased as the Testing RMSE increase. Finding the optimal number of leaves also, reduced the probability that overfitting occurs within our model.
+<p align="center">
+  <img width="460" height="300" src="Images/RMSEvsLeafSize_DecisionTree.png">
+</p>
+Additionally, we found the most optimal Max Depth for our Decision Tree model with further reduced the chance of overfitting. We tested different depths that ranged from 1 to 100. We found the optimal Max Depth by searching for the point that had the lowest RMSE. When the depth is greater than 20, the Training and Testing datasets displayed no change in RMSE which guaranteed that there was no overfitting in the model.
+<p align="center">
+  <img width="460" height="300" src="Images/RMSEvsMaxDepth_DecisionTree.png">
+</p>
+After optimizing our parameters, we ran a 10-fold cross validation and computed the model’s RMSE, RMSE Percentage, R Squared, and time needed for execution.
+<p align="center">
+  <img width="460" height="300" src="Images/RMSEvsKFold_DecisionTree.png">
+</p>
+<p align="center">
+  <img width="460" height="300" src="Images/AdjustedRSquaredvsKFold_DecisionTree.png">
+</p>
+Overall, Decision Trees proved to be an effective model. It had a low RMSE of 42136.6 and its R Squared value of 0.644 is towards 1. Additionally, the Decision Tree model was the fastest out of all the models we tested and took approximately 2.4 seconds to run.
+
 ## Neural Network
 ### Process
 We also attempted to use a neural network to model our problem. The dataset was normalized before by using a min-max scaler. The archictecture of the final neural network is as follows:
@@ -164,7 +183,7 @@ Hyper parameter tuning was used to formulate the parameters in the neural networ
   <img width="460" height="300" src="Images/4HL.png">
 </p>
 
-The values continued to degrade past 4 hidden layers which was why we decided 3 hidden layers would be best. 
+The values continued to degrade past 4 hidden layers which was why we decided 3 hidden layers would be best.
 Here is a 3 layer architecture with changing activation functions:
 #### Tanh Activation Function
 <p align="center">
@@ -189,7 +208,7 @@ To determine the correct hyperparameters to minimize the Root Mean Square Error,
   <img width="460" height="300" src="Images/RMSE vs Number of Clusters Kmeans.PNG">
 </p>
 
-From analyzing the graph above, we found the optimal number of clusters to be 73. With this optimal number of clusters, we ran K-Fold cross validation with 10 folds and computed the RMSE, RMSE percentage, R Squared, and time needed for execution. 
+From analyzing the graph above, we found the optimal number of clusters to be 73. With this optimal number of clusters, we ran K-Fold cross validation with 10 folds and computed the RMSE, RMSE percentage, R Squared, and time needed for execution.
 
 <p align="center">
   <img width="460" height="300" src="Images/RMSE vs KFold Kmeans.PNG">
