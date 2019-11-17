@@ -88,7 +88,7 @@ To ensure that the model's accuracy is not impacted by the train-test split, we 
 Ridge Regression aims to fit a function to the dataset such that the following error function is minimized:
 
 <p align="center">
-  <img width="460" height="300" src="Images/RidgeEq.png">
+  <img width="200" height="100" src="Images/RidgeEq.png">
 </p>
 
 
