@@ -40,20 +40,17 @@ As there were 6 features related to location of the house in our original datase
   <img width="100%" height="100%" src="Images/features.jpg">
 </p>
 
-## Converting Categorical Features into Numerical Features
+## Converting Features with One Hot Encoding
 
-The features we ended up going with are: number of bedrooms, bathrooms, parking spaces, region, house type, and price.
+The features we ended up going with are number of bedrooms, number of bathrooms, number of parking spaces, region, and house type. The label was price.
 
-Region is a categorical feature with 16 possible categories. We needed a way to turn categorical features into ordered, numerical features, because there is no natural ordering to categorical features. To handle this, we binarized the features, meaning that each category became a feature. Thus 16 extra features were added to our feature set, with each data point having only one of those features (indicated by a 1), and the rest of the features being a 0.
-
-House type is also a categorical feature, and there were 11 possible categories. We used the same binarization approach to handle this feature.
+Region was a categorical feature with 16 possible values. We used binarization, meaning that each category became a feature. Thus 16 extra features were added to our feature set, with each data point having only one of those features. House type is also a categorical feature, and there were 11 possible categories. We used the same binarization approach to handle this feature.
 
 Overall, there were 30 features in our final dataset.
 
-Insert Binalization features, and cite
-
 ## Detecting Outliers using Unsupervised Learning
-We wanted to ensure that there were no outliers in our dataset. We initially did PCA on all of the numeric features, excluding our labels, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
+We wanted to ensure that there were no outliers in our dataset. We performed PCA on all of the numeric features,excluding our labels, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
+
 <p align="center">
   <img width="460" height="300" src="Images/PCAofAllFeatures.png">
 </p>
@@ -70,16 +67,14 @@ Since both of the plots had the same trends, we removed the four points, that we
 ## Our New Approach
 We tried adding a supervised flavor to the K-Means Clustering algorithm. The idea is that even though clusters don't have labels, we artificially added the label of an average price of houses in each cluster. This way, we would run K-Means clustering on our training set and testing set, and find the error between the average training prices in each cluster to the average testing prices in each cluster. We thought that this approach would provide us with better results, and that the average price of a cluster will be a good indicator of the price of houses that get added to the cluster in the future.
 
-# EXPERIMENTS
-How did you evaluate your approach?
-What are the results?
+# MODELS
 
 ## Overview
-We tested 5 models on the dataset, with the goal of finding the best one: Ridge Regression, Decision Tree, Random Forest, Neural Network, and K-Means Clustering (unsupervised). For each model (excpent Neural Network), we used 80% of the data as training data, and 20% of the data as testing data.
+We tested 5 models on the dataset: Ridge Regression, Decision Tree, Random Forest, Neural Network, and K-Means Clustering. For each model except the Neural Network, we used 80% of the data as training data, and 20% of the data as testing data.
 
-After running each model, we calculated the RMSE and the Adjusted R^2 value. The RMSE tells us how 'off' the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions, which serves as a benchmark for the model's accuracy (Source: https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/). We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is compared the overall range of house prices avaiable. A smaller ratio would be another indicator of how good the RMSE is.
+We used the RMSE and the Adjusted R^2 value as our accurracy measurements. The RMSE tells us how different the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions. We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is compared the overall range of house prices avaiable. A smaller ratio would be another indicator of how good the RMSE is.
 
-To ensure that the model's accuracy is not impacted by the train-test split, we used 10-fold cross validation on a shuffled version of the data to run our models. Hence, there are 10 RMSEs and 10 Adjusted R^2 values, of which we found the average of each.
+To ensure that the model's accuracy is not impacted by the train-test split, we used 10-fold cross validation on a shuffled version of the data to run our models.
 
 ## Ridge Regression
 
