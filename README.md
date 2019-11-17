@@ -126,7 +126,51 @@ Finally, we ran K-Fold cross validation with 10 folds, and we computed the RMSE,
 </p>
 Overall, the Random Forest was effective because the RMSE is quite low, 40757.9, the R Squared value, 0.669, is close to 1. The Random Forest also was very efficient as it took 10.5 seconds for K-Fold Validation with 10 folds.
 
+## Neural Network
+### Process
+We also tried to use a neural network to model our problem. The archictecture of the neural network is as follows:
+<p align="center">
+  <img width="460" height="300" src="Images/nn.jpg">
+</p>
 
+The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropping out 50% of the parameters after each hidden layer. The activation function used was relu.
+
+Hyper parameter tuning was used to initialize the values in the neural network. For example, here are the results of the model with varying amount of hidden layers:
+#### 1 Hidden Layer
+<p align="center">
+  <img width="460" height="300" src="Images/1Hl.jpg">
+</p>
+
+#### 2 Hidden Layer
+<p align="center">
+  <img width="460" height="300" src="Images/2Hl.jpg">
+</p>
+
+#### 3 Hidden Layer
+<p align="center">
+  <img width="460" height="300" src="Images/3Hl.jpg">
+</p>
+
+#### 4 Hidden Layer
+<p align="center">
+  <img width="460" height="300" src="Images/4Hl.jpg">
+</p>
+
+The values kept on degrading past 4 hidden layers.
+
+Here is a 3 layer architecture with changing activation functions.
+
+#### Tanh Activation Function
+<p align="center">
+  <img width="460" height="300" src="Images/tanh.jpg">
+</p>
+
+#### Sigmoid Activation Function
+<p align="center">
+  <img width="460" height="300" src="Images/sigmoid.jpg">
+</p>
+
+The validation set was 10% of the data and was shuffled after each of the 30 epochs. The final RMSE values for this model was 0.07 and gave a R^2 of 0.47.
 
 # BEST MODEL
 What is the best model?
