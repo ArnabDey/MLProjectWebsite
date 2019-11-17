@@ -211,9 +211,12 @@ In all, K-means Clustering turned out to be a bad model for our dataset as the R
 
 # Conclusion
 
-| | RMSE | R^2 | RMSE Percent |
-| | ---- | ----| ------------ |
-| Ridge Regression | 12 | 14 | 15 |
+| | R^2 | RMSE Percent | Time (s) |
+| -| ----| ------------ | -- |
+|Random Forest | 0.66 | 1.77 | 126.07 |
+|Decision Tree | 0.62 | 2.04 | 24.88|
+|Neural Network | 0.48 | 7.15 | 133.7 |
+|Ridge Regression | 0.48 | 2.18 | 30.78 |
 
 <p align="center">
   <img width="460" height="300" src="Images/AR2Analysis.png">
