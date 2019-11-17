@@ -1,5 +1,5 @@
 # INTRODUCTION
-The purpose of this project was to determine the best machine learning model that would predict housing prices. Buying a house is something that most people will experience at least once in their life, and it is important to develop a resilient method that will help people make an informed decision in buying a house.
+The purpose of this project was to determine the best machine learning model that would accurately predict house prices based on relevant features of a house. Buying a house is something that most people will experience at least once in their life, and it is important to develop a resilient method that will help people make an informed decision.
 
 <p align="center">
   <img width="460" height="300" src="Images/house.svg">
@@ -17,7 +17,6 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 10
 - Longitude
 - Suburb
 - Postcode
-- Region
 - Bedrooms
 - Bathrooms
 - Parking Spaces
@@ -25,26 +24,18 @@ We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 10
 - Prices
 
 
-This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset, and any models trained on it, do not reflect any market fluctuations throughout the year.
+This data is recent, as the set was created around 1 year ago. Each entry has a sold date from October or November 2018, meaning that this dataset will produce a model that can be used in the near future.
 
-## Data Quality
-After conducting research on factors that impact house prices as well as our past experience, we determined that the dataset contained sufficient features in order to build a good model to predict house prices.
-
-## Our New Approach
-In our evaluation of several supervised learning models, we tried adding a supervised flavor to the K-Means Clustering algorithm, which is an unsupervised model. The idea is that even though clusters don't have labels, we artificially added the label of an average price of houses in each cluster. This way, we would run K-Means clustering in our training set and testing set, and find th error between the average training prices in each cluster to the average testing prices in each cluster. We think that this approach has never been done before, and that the average price of a cluster will be a good indicator of the price of houses that get added to the cluster in the future.
-
-
-
+After conducting research on past approaches and factors that impact house prices, we determined that the dataset contained the main features required to build a good model to predict house prices. We also saw features that could be generalized to houses in other regions.
 
 ## Data Cleaning
+We decided to remove entries with missing values and other values with which we would be unable to train on. For example, some houses had a listing which only said to contact agent.
 
-First, we got rid of all the features that we believe are useless for predicting house prices. The first six features are location features. To simplify the problem, we decided to use only the region feature, because it has the least number of categories (i.e. 16 of them). Then we got rid of the following features, because by common sense, they do not impact the price of a house: listingId, title, dateSold, modifiedDate.
-
-Then we got rid of all rows with missing and unknown column entries, as a complete dataset is needed to feed it into a model.
-
-After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or about 5% of the original data. This is a very small loss of data.## 
+After all the cleaning, the dataset had 99,863 samples. This was a loss of 5,257 samples, or about 5% of the original data.
 
 ## Feature Selection
+As there were 6 features related to location of the house in our original dataset, we decided to use the region feature as we felt that provided the most information compared to other measures like latitude and longitude. We also eliminated listingId, title, dateSold, and modifiedDate as these would provide no significant value to our model. While looking at the pairplot of the numeric features, it is evident the features that seem to provide the most information about price are number of bathrooms, bedrooms, and parking spaces. Latitude and longitude seem to not have a relationship when it comes to price and thus they were not included in the model.
+
 <p align="center">
   <img width="100%" height="100%" src="Images/features.jpg">
 </p>
@@ -75,6 +66,9 @@ Since both of the plots had the same trends, we removed the four points, that we
 <p align="center">
   <img width="460" height="300" src="Images/PCAofAllFeaturesRemovingOutliers.png">
 </p>
+
+## Our New Approach
+We tried adding a supervised flavor to the K-Means Clustering algorithm. The idea is that even though clusters don't have labels, we artificially added the label of an average price of houses in each cluster. This way, we would run K-Means clustering on our training set and testing set, and find the error between the average training prices in each cluster to the average testing prices in each cluster. We thought that this approach would provide us with better results, and that the average price of a cluster will be a good indicator of the price of houses that get added to the cluster in the future.
 
 # EXPERIMENTS
 How did you evaluate your approach?
@@ -182,7 +176,7 @@ Here is a 3 layer architecture with changing activation functions:
   <img width="460" height="300" src="Images/sigmoid.png">
 </p>
 
-The Tanh activation function was the 2nd best while the sigmoid function seems to be performing worst.
+The Tanh activation function was the 2nd best while the sigmoid function seems to be performing the worst.
 The validation set was 10% of the data and was shuffled after each of the 30 epochs. The final RMSE value for this model was 0.07 and gave a R^2 of 0.47.
 
 ## K-Means Clustering
