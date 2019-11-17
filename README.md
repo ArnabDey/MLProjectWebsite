@@ -119,7 +119,7 @@ Average RMSE: 50904.29373624
 Average Adjusted R-Squared: 0.48439081215876084
 Average RMSE-Price-Range Ratio: 0.02220778486116286
 
-The Average RMSE itself was pretty good, because of the low RMSE-Price-Range Ratio. However, the Adjusted R Squared value is pretty far from 1. This model took about 36 seconds to run.
+The Average RMSE itself was pretty good, because of the low RMSE-Price-Range Ratio. However, the Adjusted R Squared value is near 0.5, so it's not obvious whether it's good or not. This model took about 36 seconds to run.
 
 ## Random Forest
 ### Process
