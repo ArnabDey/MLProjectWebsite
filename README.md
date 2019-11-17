@@ -125,11 +125,11 @@ The Random Forest gave an RMSE of 40836 and a R^2 of 0.668.
 
 ## Decision Tree
 ### Process
-Similar to the Random Forest Model, we wanted to determine the correct hyperparameters for the Decision Tree model to get the lowest Root Mean Square Error (RMSE) and to reduce overfitting. We applied different Minimum Samples Leaf Size to the model that ranged from 1 to 50 number of leaves. Just like in Random Forest, we determine the most optimal number of leaves by searching in decreasing order of leaf size to find the point in the plot where the Training RMSE decreased as the Testing RMSE increase. Finding the optimal number of leaves also, reduced the probability that overfitting occurs within our model.
+First, we tested different number leaves to find the Minimum Samples Leaf Size of the model. We found that having a Leaf Size of 3 produced the lowest RMSE and reduced chances of overfitting.
 <p align="center">
   <img width="460" height="300" src="Images/RMSEvsLeafSize_DecisionTree.png">
 </p>
-Additionally, we found the most optimal Max Depth for our Decision Tree model with further reduced the chance of overfitting. We tested different depths that ranged from 1 to 100. We found the optimal Max Depth by searching for the point that had the lowest RMSE. When the depth is greater than 20, the Training and Testing datasets displayed no change in RMSE which guaranteed that there was no overfitting in the model.
+Additionally, we tested different depths to find the Max Depth of the model. When depths were greater than 20, the Training and Testing datasets displayed no change in RMSE which guaranteed no overfitting in the model.
 <p align="center">
   <img width="460" height="300" src="Images/RMSEvsMaxDepth_DecisionTree.png">
 </p>
@@ -212,17 +212,17 @@ In all, K-means Clustering turned out to be a bad model for our dataset as the R
 # Conclusion
 
 <p align="center">
-  <img width="460" height="300" src="Images/Adjusted R Squared All Models.png">
+  <img width="460" height="300" src="Images/AR2Analysis.png">
 </p>
 
 The model with the highest R^2 was Random Forest.
 <p align="center">
-  <img width="460" height="300" src="Images/RMSE Plot All Models.png">
+  <img width="460" height="300" src="Images/RatioAnalysis.png">
 </p>
 
 The model with the least eror was Random Forest.
 <p align="center">
-  <img width="460" height="300" src="Images/Run Time All Models.png">
+  <img width="460" height="300" src="Images/TimeAnalysis.png">
 </p>
 
 The model that took the least amount of time was a decision tree.
