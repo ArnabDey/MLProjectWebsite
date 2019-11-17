@@ -83,7 +83,7 @@ To ensure that the model's accuracy is not impacted by the train-test split, we 
 Ridge Regression aims to fit a function to the dataset such that the following error function is minimized:
 
 <p align="center">
-  <img width="560" height="100" src="Images/RidgeEq.png">
+  <img width="500" height="100" src="Images/RidgeEq.png">
 </p>
 
 We used a set of 7 possible regularization strength values , of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set.
