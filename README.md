@@ -42,7 +42,12 @@ First, we got rid of all the features that we believe are useless for predicting
 
 Then we got rid of all rows with missing and unknown column entries, as a complete dataset is needed to feed it into a model.
 
-After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or about 5% of the original data. This is a very small loss of data.
+After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 samples, or about 5% of the original data. This is a very small loss of data.## 
+
+## Feature Selection
+<p align="center">
+  <img width="100%" height="300" src="Images/sns.png">
+</p>
 
 ## Converting Categorical Features into Numerical Features
 
@@ -71,22 +76,14 @@ Since both of the plots had the same trends, we removed the four points, that we
   <img width="460" height="300" src="Images/PCAofAllFeaturesRemovingOutliers.png">
 </p>
 
-## Feature Selection
-<p align="center">
-  <img width="100%" height="300" src="Images/sns.png">
-</p>
-
-
-
-
 # EXPERIMENTS
 How did you evaluate your approach?
 What are the results?
 
 ## Overview
-We tested 5 models on the dataset, with the goal of finding the best one: Ridge Regression, Decision Tree, Random Forest, Neural Network, and K-Means Clustering (unsupervised). For each model, we used 80% of the data as training data, and 20% of the data as testing data.
+We tested 5 models on the dataset, with the goal of finding the best one: Ridge Regression, Decision Tree, Random Forest, Neural Network, and K-Means Clustering (unsupervised). For each model (excpent Neural Network), we used 80% of the data as training data, and 20% of the data as testing data.
 
-After runnning each model, we calculated the RMSE and the Adjusted R^2 value. The Root Mean Square error tells us how 'off' the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions, which serves as a benchmark for the model's accuracy (Source: https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/). We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is compared the overall range of house prices avaiable. A smaller value would be another indicator of how good the RMSE is.
+After running each model, we calculated the RMSE and the Adjusted R^2 value. The RMSE tells us how 'off' the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions, which serves as a benchmark for the model's accuracy (Source: https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/). We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is compared the overall range of house prices avaiable. A smaller ratio would be another indicator of how good the RMSE is.
 
 To ensure that the model's accuracy is not impacted by the train-test split, we used 10-fold cross validation on a shuffled version of the data to run our models. Hence, there are 10 RMSEs and 10 Adjusted R^2 values, of which we found the average of each.
 
@@ -99,7 +96,7 @@ Ridge Regression aims to fit a function to the dataset such that the following e
 ![ridgeeq](https://latex.codecogs.com/gif.latex?E%28%5Ctheta%29%20%3D%20%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%28f%28x_i%2C%5Ctheta%29-y_i%29%5E2%20&plus;%20%5Cfrac%7B%5Clambda%7D%7BN%7D%7C%7C%5Ctheta%7C%7C%5E2)
 
 
-The first term in this equation is the loss function, and the second term is the amount of penalty to add to the loss function. The purpose of this penalty is to prevent overfitting. Lambda is known as the regularization strength, which contributes to the penalty value. We used a set of 5 possible regularization strength values, of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set. We used the Scikit Learn RidgeCV library to train the model based on the possible regularization strength values and the number of folds we wanted to use in cross validation.
+We used a set of 5 possible regularization strength values, of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set. We used the Scikit Learn RidgeCV library to train the model based on the possible regularization strength values and the number of folds we wanted to use in cross validation.
 
 ### Results
 
