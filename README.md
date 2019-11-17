@@ -242,6 +242,16 @@ Ruiz, Jaime. “Victoria Real Estate.” Kaggle, Kaggle, https://www.kaggle.com/
 
 Srivastava, Tavish. “11 Important Model Evaluation Metrics for Machine Learning Everyone Should Know.” Analytics Vidhya, 6 Aug. 2019, www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/.
 
+Baldominos, Alejandro et al. “Identifying Real Estate Opportunities Using Machine Learning.”
+Applied Sciences 8.11 (2018): 2321. Crossref. Web.
+
+Fan, Chenchen, et al. “House Prices Prediction with Machine Learning Algorithms.” ​ Proceedings
+of the 2018 10th International Conference on Machine Learning and Computing - ICMLC 2018 ​ , 2018.
+ACM Digital Library ​ , doi:10.1145/3195106.3195133.
+
+Guan, Jian, et al. “Analyzing Massive Data Sets: An Adaptive Fuzzy Neural Approach for
+Prediction, with a Real Estate Illustration.” ​ Journal of Organizational Computing and Electronic
+Commerce ​ , vol. 24, no. 1, 2014, pp. 94–112., doi:10.1080/10919392.2014.866505.
 # Contributions
 
 - Proposal - Arnab, Shahin, Mohak, Adithya, Anunoy
