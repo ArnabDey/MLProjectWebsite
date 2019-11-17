@@ -151,7 +151,7 @@ After optimizing our parameters, we ran a 10-fold cross validation and computed 
 <p align="center">
   <img width="460" height="300" src="Images/AdjustedRSquaredvsKFold_DecisionTree.png">
 </p>
-Overall, Decision Trees proved to be an effective model. It had a low RMSE of 42136.6 and its R Squared value of 0.644 is towards 1. Additionally, the Decision Tree model was the fastest out of all the models we tested and took approximately 2.4 seconds to run.
+Overall, Decision Trees has a low RMSE of 42136.6 and has a R Squared value of 0.644. Additionally, the Decision Tree model took approximately 24.9 seconds to find the optimal Leaf Size and Max Depth and to run the cross validation.
 
 ## Neural Network
 ### Process
