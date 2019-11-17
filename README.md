@@ -2,10 +2,6 @@
 The purpose of this project was to determine the best machine learning model that would accurately predict house prices based on relevant features of a house. Buying a house is something that most people will experience at least once in their life, and it is important to develop a resilient method that will help people make an informed decision.
 
 <p align="center">
-  <img width="460" height="300" src="Images/house.svg">
-</p>
-
-<p align="center">
   <img src="Images/map.png">
 </p>
 
@@ -53,7 +49,7 @@ Region was a categorical feature with 16 possible values. We used binarization, 
 Overall, there were 30 features in our final dataset.
 
 ## Detecting Outliers using Unsupervised Learning
-We wanted to ensure that there were no outliers in our dataset. We performed PCA on all of the numeric features,excluding our labels, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
+We wanted to ensure that there were no outliers in our dataset. We performed PCA on all of the features, excluding our labels, to one dimension. The new dimension, which is the compressed version of all the features, was plotted along the price of the house.
 
 <p align="center">
   <img width="460" height="300" src="Images/PCAofAllFeatures.png">
@@ -63,20 +59,20 @@ We next conducted PCA ignoring all the categorical data in order to ensure that 
 <p align="center">
   <img width="460" height="300" src="Images/PCAOnlyNumericFeatures.png">
 </p>
-Since both of the plots had the same trends, we removed the four points, that were far away from the large cluster on the plots.
+Since both of the plots had the same trends, we removed the four points that were far away from the large cluster.
 <p align="center">
   <img width="460" height="300" src="Images/PCAofAllFeaturesRemovingOutliers.png">
 </p>
 
 ## Our New Approach
-We tried adding a supervised flavor to the K-Means Clustering algorithm. The idea is that even though clusters don't have labels, we artificially added the label of an average price of houses in each cluster. This way, we would run K-Means clustering on our training set and testing set, and find the error between the average training prices in each cluster to the average testing prices in each cluster. We thought that this approach would provide us with better results, and that the average price of a cluster will be a good indicator of the price of houses that get added to the cluster in the future.
+We modified the K-Means Clustering algorithm so we could actually predict the prices of houses based on their features. Initially, we ran K-Means clustering on the training set, excluding the price of the house, in order to group houses with similar characteristics. We next took the average house price of each cluster, and we predicted which cluster each of the test data set samples best fits in. Finally, our predicted house price for the test data set was the average house price of the cluster that each test data sample belongs in.
 
 # MODELS
 
 ## Overview
 We tested 5 models on the dataset: Ridge Regression, Decision Tree, Random Forest, Neural Network, and K-Means Clustering. For each model except the Neural Network, we used 80% of the data as training data, and 20% of the data as testing data.
 
-After running each model, we calculated the RMSE and the Adjusted R^2 value. The RMSE tells us how 'off' the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions, which serves as a benchmark for the model's accuracy (Srivastava). We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is compared the overall range of house prices avaiable. A smaller ratio would be another indicator of how good the RMSE is.
+After running each model, we calculated the RMSE and the Adjusted R^2 value. The RMSE tells us how 'off' the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions, which serves as a benchmark for the model's accuracy (Srivastava). We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is. A smaller ratio would be another indicator of how good the RMSE is.
 
 To ensure that the model's accuracy is not impacted by the train-test split, we used 10-fold cross validation on a shuffled version of the data to run our models.
 
@@ -87,11 +83,10 @@ To ensure that the model's accuracy is not impacted by the train-test split, we 
 Ridge Regression aims to fit a function to the dataset such that the following error function is minimized:
 
 <p align="center">
-  <img width="300" height="100" src="Images/RidgeEq.png">
+  <img width="100%" height="100" src="Images/RidgeEq.png">
 </p>
 
-
-We used a set of 5 possible regularization strength values (i.e. lambdas), of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set. We used the Scikit Learn RidgeCV library to train the model based on the possible regularization strength values and the number of folds we wanted to use in cross validation.
+We used a set of 7 possible regularization strength values , of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set.
 
 ### Results
 
@@ -107,18 +102,11 @@ The following figure is a plot of the Adjusted R-Squared for each fold that Ridg
   <img width="460" height="300" src="Images/RidgePlot2.png">
 </p>
 
-
-The following numbers are some statistics we gathered for this model:
-
-Average RMSE: 50971.496987372266
-Average Adjusted R-Squared: 0.4824538990276121
-Average RMSE-Price-Range Ratio: 0.021861103433063488
-
-The Average RMSE itself was pretty good, because of the low RMSE-Price-Range Ratio. However, the Adjusted R Squared value is near 0.5, so it's not obvious whether it's good or not. This model took 30.78096890449524 to run for 10 folds.
+This model gave an average RMSE of 50971 and an adjusted R^2 of 0.48.
 
 ## Random Forest
 ### Process
-We wanted to determine the correct hyperparameters in order to increase the Root Mean Square Error (RMSE), so we adjusted the Minimum Samples needed in order to create a leaf. In order to ensure that we could get the highest RMSE, we varied the Minimum Samples Leaf Size from 1 to 100. We determined the optimal leaf size by looking for the point on the plot where the Training RMSE continued to decrease and the Testing RMSE started to increase when we look at plot in decreasing order of leaf size. By determining the optimal leaf size, we also reduced the chance for overfitting. Overfitting occurs when the RMSE is high for the Training data but low for the Testing data in comparison to other hyperparameter value.
+We wanted to determine the correct hyperparameters in order to decrease the Root Mean Square Error (RMSE), so we adjusted the Minimum Samples needed in order to create a leaf. In order to ensure that we could get the lowest RMSE, we varied the Minimum Samples Leaf Size from 1 to 100. We determined the optimal leaf size by looking for the point on the plot where the Training RMSE continued to decrease and the Testing RMSE started to increase when we look at plot in decreasing order of leaf size. By determining the optimal leaf size, we also reduced the chance for overfitting.
 <p align="center">
   <img width="460" height="300" src="Images/RMSEvsLeafSize.png">
 </p>
@@ -133,7 +121,7 @@ Finally, we ran K-Fold cross validation with 10 folds, and we computed the RMSE,
 <p align="center">
   <img width="460" height="300" src="Images/AdjustedRSquaredvsKFold.png">
 </p>
-Overall, the Random Forest was effective because the RMSE is quite low, 40836.669, the R Squared value, 0.668, is close to 1. The Random Forest also was not very time efficient as it took 126.069 seconds for K-Fold Validation with 10 folds.
+The Random Forest gave an RMSE of 40836 and a R^2 of 0.668.
 
 ## Decision Tree
 ### Process
@@ -221,18 +209,25 @@ From analyzing the graph above, we found the optimal number of clusters to be 73
 
 In all, K-means Clustering turned out to be a bad model for our dataset as the RMSE is 381001.587 and the R Squared value is -9536.015. The time it took to run K-Means Clustering was 1427.653 seconds.
 
-# BEST MODEL
-What is the best model?
-How do you compare your method to other methods?
+# Conclusion
+
 <p align="center">
   <img width="460" height="300" src="Images/Adjusted R Squared All Models.png">
 </p>
+
+The model with the highest R^2 was Random Forest.
 <p align="center">
   <img width="460" height="300" src="Images/RMSE Plot All Models.png">
 </p>
+
+The model with the least eror was Random Forest.
 <p align="center">
   <img width="460" height="300" src="Images/Run Time All Models.png">
 </p>
+
+The model that took the least amount of time was a decision tree.
+
+The best model is dependent on the situation, if it is necessary for quick results then a decision tree will provide close to the same level as a random forest at 1/6 the time. If time is not a factor, then a random forest will provide the best results.
 
 # Works Cited
 
@@ -240,3 +235,19 @@ Ruiz, Jaime. “Victoria Real Estate.” Kaggle, Kaggle, https://www.kaggle.com/
 
 Srivastava, Tavish. “11 Important Model Evaluation Metrics for Machine Learning Everyone Should Know.” Analytics Vidhya, 6 Aug. 2019, www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/.
 
+# Contributions
+
+Proposal - Arnab, Shahin, Mohak, Adithya, Anunoy
+Visualization of Data - Anunoy, Mohak
+Research - Arnab, Shahin, Mohak, Adithya, Anunoy
+Cleaning Data - Arnab, Shahin, Adithya
+One Hot Encoding - Adithya
+Removing Outliers - Arnab
+Ridge Regression - Adithya 
+Random Forest - Arnab 
+Decision Trees - Anunoy
+Neural Network - Mohak
+K-Means Clustering - Shahin, Arnab
+Comparative Analysis - Arnab, Mohak
+Website - Mohak, Shahin, Arnab, Adithya, Anunoy
+SVM (not included in presentation due to limited computing power) - Shahin
