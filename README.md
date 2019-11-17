@@ -138,7 +138,7 @@ Finally, we ran K-Fold cross validation with 10 folds, and we computed the RMSE,
 <p align="center">
   <img width="460" height="300" src="Images/AdjustedRSquaredvsKFold.png">
 </p>
-Overall, the Random Forest was effective because the RMSE is quite low, 40757.9, the R Squared value, 0.669, is close to 1. The Random Forest also was very efficient as it took 10.5 seconds for K-Fold Validation with 10 folds.
+Overall, the Random Forest was effective because the RMSE is quite low, 40757.9, the R Squared value, 0.669, is close to 1. The Random Forest also was not very time efficient as it took 126.069 for K-Fold Validation with 10 folds.
 
 ## Decision Tree
 ### Process
