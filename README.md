@@ -10,7 +10,7 @@ The purpose of this project was to determine the best machine learning model tha
 </p>
 
 # DATASET AND APPROACH
-We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 105,120 samples with the following 15 columns (1):
+We used Kaggle's 'Victoria Real Estate' dataset, and the original dataset has 105,120 samples with the following 15 columns (Ruiz):
 - Street Address
 - Listing Id
 - Title
@@ -81,7 +81,7 @@ What are the results?
 ## Overview
 We tested 5 models on the dataset, with the goal of finding the best one: Ridge Regression, Decision Tree, Random Forest, Neural Network, and K-Means Clustering (unsupervised). For each model (excpent Neural Network), we used 80% of the data as training data, and 20% of the data as testing data.
 
-After running each model, we calculated the RMSE and the Adjusted R^2 value. The RMSE tells us how 'off' the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions, which serves as a benchmark for the model's accuracy (Source: https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/). We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is compared the overall range of house prices avaiable. A smaller ratio would be another indicator of how good the RMSE is.
+After running each model, we calculated the RMSE and the Adjusted R^2 value. The RMSE tells us how 'off' the predicted prices are from the ground truth prices. The Adjusted R^2 value tells us how good the model's prediction is compared to a model predicting the mean value of all predictions, which serves as a benchmark for the model's accuracy (Srivastava). We want the Adjusted R^2 value to be as close to 1 as possible. Also, we calculated the ratio between the RMSE and the range of prices in the test set as an indicator of how small the RMSE is compared the overall range of house prices avaiable. A smaller ratio would be another indicator of how good the RMSE is.
 
 To ensure that the model's accuracy is not impacted by the train-test split, we used 10-fold cross validation on a shuffled version of the data to run our models. Hence, there are 10 RMSEs and 10 Adjusted R^2 values, of which we found the average of each.
 
@@ -91,33 +91,35 @@ To ensure that the model's accuracy is not impacted by the train-test split, we 
 
 Ridge Regression aims to fit a function to the dataset such that the following error function is minimized:
 
-![ridgeeq](https://latex.codecogs.com/gif.latex?E%28%5Ctheta%29%20%3D%20%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%28f%28x_i%2C%5Ctheta%29-y_i%29%5E2%20&plus;%20%5Cfrac%7B%5Clambda%7D%7BN%7D%7C%7C%5Ctheta%7C%7C%5E2)
+<p align="center">
+  <img width="300" height="100" src="Images/RidgeEq.png">
+</p>
 
 
-We used a set of 5 possible regularization strength values, of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set. We used the Scikit Learn RidgeCV library to train the model based on the possible regularization strength values and the number of folds we wanted to use in cross validation.
+We used a set of 5 possible regularization strength values (i.e. lambdas), of which we needed to choose 1: [0, 0.1, 1, 5, 10, 100, 1000]. We chose this set because it was the same one used in HW3. To find the best one, we used 10-fold cross validation on the training set. We used the Scikit Learn RidgeCV library to train the model based on the possible regularization strength values and the number of folds we wanted to use in cross validation.
 
 ### Results
 
 The following figure is a plot of the RMSE for each fold that Ridge Regression was trained on:
 
 <p align="center">
-  <img width="460" height="300" src="Images/RidgeRMSEPlot.png">
+  <img width="460" height="300" src="Images/RidgePlot1.png">
 </p>
 
 The following figure is a plot of the Adjusted R-Squared for each fold that Ridge Regression was trained on:
 
 <p align="center">
-  <img width="460" height="300" src="Images/RidgeAR2Plot.png">
+  <img width="460" height="300" src="Images/RidgePlot2.png">
 </p>
 
 
 The following numbers are some statistics we gathered for this model:
 
-Average RMSE: 50904.29373624
-Average Adjusted R-Squared: 0.48439081215876084
-Average RMSE-Price-Range Ratio: 0.02220778486116286
+Average RMSE: 50971.496987372266
+Average Adjusted R-Squared: 0.4824538990276121
+Average RMSE-Price-Range Ratio: 0.021861103433063488
 
-The Average RMSE itself was pretty good, because of the low RMSE-Price-Range Ratio. However, the Adjusted R Squared value is near 0.5, so it's not obvious whether it's good or not. This model took about 36 seconds to run.
+The Average RMSE itself was pretty good, because of the low RMSE-Price-Range Ratio. However, the Adjusted R Squared value is near 0.5, so it's not obvious whether it's good or not. This model took 30.78096890449524 to run for 10 folds.
 
 ## Random Forest
 ### Process
@@ -237,7 +239,9 @@ How do you compare your method to other methods?
   <img width="460" height="300" src="Images/Run Time All Models.png">
 </p>
 
-# Sources
-1. https://www.kaggle.com/ruizjme/realestate-vic-sold
-2.
+# Works Cited
+
+Ruiz, Jaime. “Victoria Real Estate.” Kaggle, Kaggle, https://www.kaggle.com/ruizjme/realestate-vic-sold.
+
+Srivastava, Tavish. “11 Important Model Evaluation Metrics for Machine Learning Everyone Should Know.” Analytics Vidhya, 6 Aug. 2019, www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/.
 
