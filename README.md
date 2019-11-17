@@ -46,7 +46,7 @@ After all the cleaning, the dataset had 99,863 samples. This is a loss of 5,257 
 
 ## Feature Selection
 <p align="center">
-  <img width="100%" height="300" src="Images/features.jpg">
+  <img width="100%" height="100%" src="Images/features.jpg">
 </p>
 
 ## Converting Categorical Features into Numerical Features
@@ -142,49 +142,48 @@ Overall, the Random Forest was effective because the RMSE is quite low, 40757.9,
 
 ## Neural Network
 ### Process
-We also tried to use a neural network to model our problem. The archictecture of the neural network is as follows:
+We also attempted to use a neural network to model our problem. The dataset was normalized before by using a min-max scaler. The archictecture of the final neural network is as follows:
 <p align="center">
   <img width="100%" height="300" src="Images/nn.jpg">
 </p>
 
-The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropping out 50% of the parameters after each hidden layer. The activation function used was relu.
+The optimal model has 3 hidden layers made of 64 nodes and droupout layers dropping out 50% of the parameters after each hidden layer. The activation function used was Relu.
 
-Hyper parameter tuning was used to initialize the values in the neural network. For example, here are the results of the model with varying amount of hidden layers:
+Hyper parameter tuning was used to formulate the parameters in the neural network. All the possible parameters include number of nodes, number of hidden layers, activation function, and number of epochs. Parameters chosen reduced validation and training set Mean Square Error. Here are the results of the model with varying amount of hidden layers:
 #### 1 Hidden Layer
 <p align="center">
   <img width="460" height="300" src="Images/1HL.png">
 </p>
 
-#### 2 Hidden Layer
+#### 2 Hidden Layers
 <p align="center">
   <img width="460" height="300" src="Images/2HL.png">
 </p>
 
-#### 3 Hidden Layer
+#### 3 Hidden Layers
 <p align="center">
   <img width="460" height="300" src="Images/3HL.png">
 </p>
 
-#### 4 Hidden Layer
+#### 4 Hidden Layers
 <p align="center">
   <img width="460" height="300" src="Images/4HL.png">
 </p>
 
-The values kept on degrading past 4 hidden layers.
-
-Here is a 3 layer architecture with changing activation functions.
-
+The values continued to degrade past 4 hidden layers which was why we decided 3 hidden layers would be best. 
+Here is a 3 layer architecture with changing activation functions:
 #### Tanh Activation Function
 <p align="center">
-  <img width="460" height="300" src="Images/tanh.jpg">
+  <img width="460" height="300" src="Images/tanh.png">
 </p>
 
 #### Sigmoid Activation Function
 <p align="center">
-  <img width="460" height="300" src="Images/sigmoid.jpg">
+  <img width="460" height="300" src="Images/sigmoid.png">
 </p>
 
-The validation set was 10% of the data and was shuffled after each of the 30 epochs. The final RMSE values for this model was 0.07 and gave a R^2 of 0.47.
+The Tanh activation function was the 2nd best while the sigmoid function seems to be performing worst.
+The validation set was 10% of the data and was shuffled after each of the 30 epochs. The final RMSE value for this model was 0.07 and gave a R^2 of 0.47.
 
 # BEST MODEL
 What is the best model?
